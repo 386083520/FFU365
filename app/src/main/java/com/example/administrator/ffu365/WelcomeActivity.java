@@ -29,6 +29,7 @@ public class WelcomeActivity extends Activity{
                 super.onAnimationEnd(animation);
                 Intent it=new Intent(WelcomeActivity.this,MainActivity.class);
                 startActivity(it);
+                finish();
             }
         });
 

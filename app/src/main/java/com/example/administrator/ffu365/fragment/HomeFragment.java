@@ -1,6 +1,7 @@
 package com.example.administrator.ffu365.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -13,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.bumptech.glide.Glide;
+import com.example.administrator.ffu365.DetailLinkActivity;
 import com.example.administrator.ffu365.R;
 import com.example.administrator.ffu365.adapter.HomeInfoListAdapter;
 import com.example.administrator.ffu365.model.HomeDataResult;
@@ -31,10 +33,11 @@ import okhttp3.Response;
  * Created by Administrator on 2017/5/19.
  */
 
-public class HomeFragment extends Fragment{
+public class HomeFragment extends Fragment implements View.OnClickListener{
     private ImageView adbannerIv,commendCompanyIv;
     private Context mContext;
     private ListView newsList;
+    HomeDataResult homeDataResult;
     View view;
     Handler handler=new Handler();
     @Nullable
@@ -52,6 +55,7 @@ public class HomeFragment extends Fragment{
         adbannerIv = (ImageView) view.findViewById(R.id.adbanner_iv);
         commendCompanyIv= (ImageView) view.findViewById(R.id.recommended_company);
        newsList= (ListView) view.findViewById(R.id.industry_information_lv);
+        adbannerIv.setOnClickListener(this);
         requestHomeData();
     }
 
@@ -73,7 +77,7 @@ public class HomeFragment extends Fragment{
                 String result = response.body().string();
                 Log.e("TAG", result);
                 Gson gson=new Gson();
-               HomeDataResult homeDataResult=gson.fromJson(result,HomeDataResult.class);
+               homeDataResult=gson.fromJson(result,HomeDataResult.class);
 
                 showHomeDate(homeDataResult.getData());
 
@@ -100,4 +104,15 @@ public class HomeFragment extends Fragment{
     }
 
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.adbanner_iv:
+                String adBannerImage=homeDataResult.getData().getAd_list().get(0).getImage();
+                Intent it=new Intent(getActivity(), DetailLinkActivity.class);
+                it.putExtra(DetailLinkActivity.URL_KEY,adBannerImage);
+                startActivity(it);
+                break;
+        }
+    }
 }

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gsd="http://schemas.android.com/apk/res-auto"
     android:background="@color/root_bg_color"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -18,9 +20,11 @@
           android:focusable="true"
           android:focusableInTouchMode="true"
           android:orientation="vertical" >
-   <ImageView
+   <com.example.administrator.ffu365.ui.ProportionImageView
        android:id="@+id/adbanner_iv"
-       android:scaleType="fitXY"
+       gsd:widthProportion="2"
+       gsd:heightProportion="1"
+
        android:layout_width="match_parent"
        android:layout_height="150dp" />
    <LinearLayout
@@ -240,8 +244,9 @@
        android:textColor="@color/title_black"
        android:textSize="14sp" />
 
-   <ImageView
-       android:scaleType="fitXY"
+   <com.example.administrator.ffu365.ui.ProportionImageView
+       gsd:widthProportion="2"
+       gsd:heightProportion="1"
        android:id="@+id/recommended_company"
        android:layout_width="match_parent"
        android:layout_height="160dp" />
