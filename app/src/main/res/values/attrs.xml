@@ -4,4 +4,15 @@
         <attr name="widthProportion" format="float"/>
         <attr name="heightProportion" format="float"/>
     </declare-styleable>
+
+    <declare-styleable name="VerificationCodeButton">
+        <attr name="timing_background" format="reference" />
+        <attr name="timing_textColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="roundedimageview">
+        <attr name="border_thickness" format="dimension"/>
+        <attr name="border_outside_color" format="color"/>
+        <attr name="border_inside_color" format="color"/>
+    </declare-styleable>
 </resources>

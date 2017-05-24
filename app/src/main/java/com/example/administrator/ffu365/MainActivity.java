@@ -1,5 +1,7 @@
 package com.example.administrator.ffu365;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +14,9 @@ import com.example.administrator.ffu365.fragment.CenterFragment;
 import com.example.administrator.ffu365.fragment.CollectionFragment;
 import com.example.administrator.ffu365.fragment.HomeFragment;
 import com.example.administrator.ffu365.fragment.MessageFragment;
+import com.example.administrator.ffu365.model.UserLoginResult;
+import com.example.administrator.ffu365.util.ActivityManagerUtil;
+import com.example.administrator.ffu365.util.alipay.PayUtil;
 
 import java.util.ArrayList;
 
@@ -22,11 +27,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ActivityManagerUtil.getInstance().addActivity(this);
         setContentView(R.layout.activity_main);
         viewPager= (ViewPager) findViewById(R.id.view_pager);
         initView();
         initData();
+
+
     }
+
+
 
     private void initView() {
        mHomeRb= (RadioButton) findViewById(R.id.home_rb);
@@ -57,7 +67,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                   viewPager.setCurrentItem(0,false);
                   break;
               case R.id.collection_rb:
-                  viewPager.setCurrentItem(1,false);
+                  SharedPreferences sp = getSharedPreferences("info", MODE_PRIVATE);
+                  boolean isLogin = sp.getBoolean("is_login", false);
+                  if(isLogin){
+                      viewPager.setCurrentItem(1,false);
+                  }else{
+                      Intent it=new Intent(MainActivity.this, UserLoginActivity.class);
+                      startActivity(it);
+                      onPageSelected(viewPager.getCurrentItem());
+                  }
+
                   break;
               case R.id.message_rb:
                   viewPager.setCurrentItem(2,false);

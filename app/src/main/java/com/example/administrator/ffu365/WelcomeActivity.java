@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.widget.ImageView;
 
+import com.example.administrator.ffu365.util.ActivityManagerUtil;
+
 /**
  * Created by Administrator on 2017/5/19.
  */

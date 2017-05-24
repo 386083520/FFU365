@@ -21,4 +21,8 @@
 
     <!-- 头部颜色 -->
     <color name="top_bg_color"> #323a45</color>
+
+    <color name="no_color">#00000000</color>
+
+    <color name="main_gray"> #767676</color>
 </resources>

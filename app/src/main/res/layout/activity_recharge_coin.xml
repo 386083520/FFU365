@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/root_bg_color"
+    android:orientation="vertical" >
+
+    <ScrollView
+        style="@style/width_match_height_wrap"
+        android:scrollbars="none">
+
+        <LinearLayout
+            style="@style/width_match_height_wrap"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                style="@style/width_match_height_wrap"
+                android:gravity="center_vertical"
+                android:padding="10dp" >
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"
+                    android:background="#DBDEE2" />
+
+                <TextView
+                    style="@style/wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="选择金币数量"
+                    android:textColor="@color/defualt_text_color"
+                    android:textSize="@dimen/text_size_oversize" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"
+                    android:background="#DBDEE2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="1dp"
+                style="@style/width_match_height_wrap"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:padding="10dp" >
+
+                <TextView
+                    style="@style/wrap_content"
+                    android:text="金币数量"
+                    android:textColor="@color/main_color"
+                    android:textSize="@dimen/default_text_size" />
+
+                <EditText
+                    android:hint="请输入充值的个数"
+                    android:textSize="@dimen/default_text_size"
+                    android:id="@+id/coin_number"
+                    android:background="@null"
+                    style="@style/width_weight"
+                    android:layout_marginLeft="10dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/pay_introduce"
+                style="@style/width_match_height_wrap"
+                android:layout_marginTop="1dp"
+                android:background="@color/white"
+                android:paddingBottom="8dp"
+                android:gravity="right"
+                android:paddingRight="10dp"
+                android:paddingTop="8dp"
+                android:text="10金币 =1元"
+                android:textColor="@color/defualt_text_color"
+                android:textSize="@dimen/default_text_size" />
+
+            <LinearLayout
+                style="@style/width_match_height_wrap"
+                android:gravity="center_vertical"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:padding="10dp" >
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"
+                    android:background="#DBDEE2" />
+
+                <TextView
+                    style="@style/wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="支付方式"
+                    android:textColor="@color/defualt_text_color"
+                    android:textSize="@dimen/text_size_oversize" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"
+                    android:background="#DBDEE2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/alipay_ll"
+                style="@style/width_match_height_wrap"
+                android:background="@color/white"
+                android:padding="10dp" >
+
+                <TextView
+                    style="@style/width_weight"
+                    android:drawableLeft="@drawable/alipay_icon"
+                    android:drawablePadding="10dp"
+                    android:gravity="center_vertical"
+                    android:text="支付宝支付" />
+
+                <CheckBox
+                    android:id="@+id/alipay_cb"
+                    style="@style/wrap_content"
+                    android:checked="true"
+                    android:button="@drawable/checkbox_choose" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/wx_ll"
+                style="@style/width_match_height_wrap"
+                android:layout_marginTop="1dp"
+                android:background="@color/white"
+                android:padding="10dp" >
+
+                <TextView
+                    style="@style/width_weight"
+                    android:drawableLeft="@drawable/wx_icon"
+                    android:drawablePadding="10dp"
+                    android:gravity="center_vertical"
+                    android:text="微信支付" />
+
+                <CheckBox
+                    android:id="@+id/wx_cb"
+                    style="@style/wrap_content"
+                    android:button="@drawable/checkbox_choose" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/payment_bt"
+                style="@style/width_match_height_wrap"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/corners_login_bg"
+                android:padding="10dp"
+                android:text="立即支付"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/pay_explanation"
+                style="@style/wrap_content"
+                android:layout_marginBottom="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text=""
+                android:textSize="@dimen/default_text_size" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

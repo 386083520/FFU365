@@ -2,13 +2,27 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.administrator.ffu365">
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"></uses-permission>
+
+    <meta-data
+        android:name="com.baidu.lbsapi.API_KEY"
+        android:value="YBxzfNnKyKWEdUBbGBzKNDEXkgqf6iTT" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".WelcomeActivity">
+        <activity android:name=".map.MapActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,6 +31,21 @@
         </activity>
         <activity android:name=".MainActivity"/>
         <activity android:name=".DetailLinkActivity"/>
+        <activity android:name=".UserLoginActivity"/>
+        <activity android:name=".UserRegisterActivity"/>
+        <activity android:name=".UserInfoActivity"/>
+        <activity android:name=".RechargeCoinActivity"/>
+        <activity android:name=".MyCoinActivity"/>
+        <activity android:name="com.alipay.sdk.app.H5PayActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            />
+        <activity
+            android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop" />
+        <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote">
+        </service>
     </application>
 
 </manifest>
